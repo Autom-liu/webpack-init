@@ -1,2 +1,5 @@
-cats = require('./cats.js');
-console.log(cats);
+'use strict';
+
+var $ = require('jquery');
+
+$('body').css('background-color', '#ccc');
