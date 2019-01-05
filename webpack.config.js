@@ -14,7 +14,11 @@ function getHtmlPluginConfig(name, title) {
 	};
 }
 
-module.exports = {
+// 环境变量设置
+
+var WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
+
+var config = {
 	entry: {
 		'commons': ['./src/pages/common/index.js'],
 		'index': ['./src/pages/index/index.js'],
@@ -22,6 +26,7 @@ module.exports = {
 	},
 	output: {
 		path: './dist',
+		publicPath: '/dist',
 		filename: 'js/[name].js'
 	},
 	externals: {
@@ -30,7 +35,7 @@ module.exports = {
 	module: {
 		loaders: [
 			{ test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
-			{ test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100000&name=../img/[name].[ext]' }
+			{ test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100000&name=img/[name].[ext]' }
 		]
 	},
 	plugins: [
@@ -42,3 +47,9 @@ module.exports = {
 		new HtmlWebpackPlugin(getHtmlPluginConfig('index', '首页')),
 	],
 }
+
+if(WEBPACK_ENV === 'dev') {
+	config.entry.commons.push('webpack-dev-server/client?http://localhost:8088/')
+}
+
+module.exports = config;

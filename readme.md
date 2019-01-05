@@ -100,3 +100,7 @@ module: {
     ]
   }
 ```
+
+## webpack-dev-server
+
+> npm i webpack-dev-server@1.16.5 --save-dev
