@@ -1,0 +1,15 @@
+{
+  "name": "gmall",
+  "version": "1.0.0",
+  "description": "基于webpack打包的电商系统前端项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^1.15.0"
+  }
+}
