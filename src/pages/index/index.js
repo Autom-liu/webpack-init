@@ -1,8 +1,9 @@
 'use strict';
 
+require('./index.css');
 var $ = require('jquery');
 var m = require('../modules.js');
 
-$('body').css('background-color', '#ccc');
+$('body').html('HELLO INDEX!');
 
 console.log(m.test);
