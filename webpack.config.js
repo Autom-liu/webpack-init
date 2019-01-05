@@ -5,11 +5,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 function getHtmlPluginConfig(name, title) {
 	return {
+		title: title,
 		template: './src/view/'+ name +'.html',
 		filename: 'view/'+ name +'.html',
 		inject: true,
 		hash: true,
-		title: title,
 		chunks: ['commons', name],
 	};
 }
@@ -29,7 +29,7 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{ test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") }
+			{ test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
 		]
 	},
 	plugins: [
