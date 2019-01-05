@@ -1,6 +1,18 @@
 
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+
+function getHtmlPluginConfig(name, title) {
+	return {
+		template: './src/view/'+ name +'.html',
+		filename: 'view/'+ name +'.html',
+		inject: true,
+		hash: true,
+		title: title,
+		chunks: ['commons', name],
+	};
+}
 
 module.exports = {
 	entry: {
@@ -26,5 +38,6 @@ module.exports = {
 			filename: 'js/base.js'
 		}),
 		new ExtractTextPlugin('css/[name].css'),
+		new HtmlWebpackPlugin(getHtmlPluginConfig('index', '首页')),
 	],
 }
