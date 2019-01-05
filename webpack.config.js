@@ -30,6 +30,7 @@ module.exports = {
 	module: {
 		loaders: [
 			{ test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
+			{ test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100000&name=../img/[name].[ext]' }
 		]
 	},
 	plugins: [

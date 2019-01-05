@@ -74,3 +74,29 @@ chunks主要用于多入口文件，当你有多个入口文件，那就回编�
 需要安装html-loader
 
 > npm i html-loader --save-dev
+
+## 对图片和字体处理
+
+> npm install url-loader@0.5.9 --save-dev
+
+> npm install file-loader@0.9.0 --save-dev
+
+webpack3 以上的版本
+
+```js
+module: {
+    rules: [
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
+      }
+    ]
+  }
+```
